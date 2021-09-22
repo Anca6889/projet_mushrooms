@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'interface'
 ]
 
 MIDDLEWARE = [
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'projectmushrooms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_p8',
+        'NAME': 'db_mushrooms',
         'USER': 'postgres',
         'PASSWORD': os.environ.get('DB_PASS'),
         'HOST': 'localhost',
