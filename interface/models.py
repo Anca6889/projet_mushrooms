@@ -46,6 +46,7 @@ class Mushroom(models.Model):
     commentaires = models.CharField(max_length=4000)
     synonymes = models.CharField(max_length=2000)
     qq = models.CharField(max_length=1000)
+    image = models.CharField(max_length=2000, null=True)
 
     def __str__(self):
         return self.espece
