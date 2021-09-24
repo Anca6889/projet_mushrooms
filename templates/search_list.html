@@ -1,0 +1,83 @@
+{% extends "index.html" %}
+
+{% block body_content %}
+
+<body>
+    {% if object_list %}
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('/static/assets/img/top-view-of-fresh-mushrooms-in-wicker-basket-on-rustic-wood-with-copy-space.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h2> Résultats de votre recherche </h2>
+                        <span class="subheading">par nom d'espèce ou nom commun</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content-->
+    <section class="page-section">
+        <div class="row text-center justify-content-center align-items-centers">
+            {% for mushroom in object_list %}
+            <div class="col-lg-4 col-md-12 d-flex align-items-stretch">
+                <div class="card mx-3 shadow p-3 mb-5 bg_white border-primary rounded flex-fill">
+                    {% if mushroom.comestibilite == "bon comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/excellent.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "mauvais comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/orange.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "non comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/Daco_4461294.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "toxique" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/clipart343879.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "mortel" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% else %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/pngegg.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% endif %}
+                    <img class="card-img-top" src="{{ mushroom.image }}" style="object-fit: contain; height: 20em" />
+                    <div class="card-body">
+                        <div class="text-primary"><br> {{ mushroom.espece }} <br></div>
+                        <div class="text-secondary"> <em>{{ mushroom.nom_vernaculaire }}</em><br><br></div>
+                        <div class="text-secondary"> <em>{{ mushroom.comestibilite }}</em><br><br></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% else %}
+    <header class="masthead"
+        style="background-image: url('/static/assets/img/top-view-of-fresh-mushrooms-in-wicker-basket-on-rustic-wood-with-copy-space.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h2> Désolé </h2>
+                        <span class="subheading">nous n'avons trouvé aucun résultat correspondant aux termes de votre recherche</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endif %}
+</body>
+
+{% endblock %}
