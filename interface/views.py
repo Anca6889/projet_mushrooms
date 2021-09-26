@@ -42,5 +42,29 @@ class SearchResults(ListView):
         results = service.search_results_with_name(query)
         return results
 
+def sort_by_edible_very_good(request):
+
+    mushrooms = service.sort_by_edible_very_good()
+    context = service.set_mushrooms_context(mushrooms)
+    return render(request, "sort_by_edible_very_good.html", context)
 
 
+def sort_by_edible_good(request):
+
+    mushrooms = service.sort_by_edible_good()
+    context = service.set_mushrooms_context(mushrooms)
+    return render(request, "sort_by_edible_good.html", context)
+
+
+def sort_by_edible_deadly(request):
+
+    mushrooms = service.sort_by_edible_deadly()
+    context = service.set_mushrooms_context(mushrooms)
+    return render(request, "sort_by_edible_deadly.html", context)
+
+
+def sort_by_edible_toxic(request):
+
+    mushrooms = service.sort_by_edible_toxic()
+    context = service.set_mushrooms_context(mushrooms)
+    return render(request, "sort_by_edible_toxic.html", context)

@@ -34,4 +34,19 @@ class Service:
         return Mushroom.objects.filter(image__isnull=False).filter(
             Q(espece__icontains=query) | Q(nom_vernaculaire__icontains=query)
         ).order_by("espece")
+
+    def sort_by_edible_very_good(self):
+
+        return Mushroom.objects.filter(image__isnull=False).filter(comestibilite__exact="bon comestible").order_by("espece")
     
+    def sort_by_edible_good(self):
+
+        return Mushroom.objects.filter(image__isnull=False).filter(comestibilite__exact="comestible").order_by("espece")
+
+    def sort_by_edible_deadly(self):
+
+        return Mushroom.objects.filter(image__isnull=False).filter(comestibilite__exact="mortel").order_by("espece")
+
+    def sort_by_edible_toxic(self):
+
+        return Mushroom.objects.filter(image__isnull=False).filter(comestibilite__exact="toxique").order_by("espece")

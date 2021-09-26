@@ -31,8 +31,8 @@
             <div class="post-preview">
                 
                 <div class="row text-center justify-content-center align-items-centers">
-                    <h2 class="post-title text-primary">Recherche par identification</h2>
-                    <h5 class="post-subtitle text-primary">Répondez aux questions posés par l'assistant</h5>
+                    <h2 class="post-title text-primary">Recherche par moteur d'identification à 3 clics</h2>
+                    <h5 class="post-subtitle text-primary">Répondez aux questions posés par l'assistant puis regardez les espèces pouvant correspondres</h5>
                     <p>
                         quel est la couleur du chapeau ?
                     </p>
@@ -62,11 +62,47 @@
             <hr class="my-4" />
             <!-- Post preview-->
             <div class="post-preview">
+                <div class="row my-4 text-center justify-content-center align-items-centers">
+                    <h2 class="text-primary">Trier par comestibilité</h2>
+                </div>
+                <div class="row text-center justify-content-center align-items-centers">
+                    <img src="/static/assets/img/pexels-polina-tankilevitch-5848425.png">
+                    <div class="col">
+                        <a href="{% url 'sort_by_edible_very_good' %}"><img src="/static/assets/img/excellent.png" WIDTH=70 HEIGHT=70 /> </a>
+                        <p>Bon comestible<p>
+                    </div>
+                    <div class="col">
+                        <a href="{% url 'sort_by_edible_good' %}"><img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=70 HEIGHT=70 /></a>
+                        <p>Comestible</p>
+                    </div>
+                    <div class="col">
+                        <img src="/static/assets/img/orange.png" WIDTH=70 HEIGHT=70 />
+                        <p>Mauvais comestible</p>
+                    </div>
+                    <div class="col">
+                        <img src="/static/assets/img/Daco_4461294.png" WIDTH=70 HEIGHT=70 />
+                        <p>Non comestible</p>
+                    </div>
+                    <div class="col">
+                        <a href="{% url 'sort_by_edible_toxic' %}"><img src="/static/assets/img/clipart343879.png" WIDTH=70 HEIGHT=70 /></a>
+                        <p>Toxique</p>
+                    </div>
+                    <div class="col">
+                        <a href="{% url 'sort_by_edible_deadly' %}"><img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=70 HEIGHT=70 /></a>
+                        <p>Mortel</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- Post preview-->
+            <div class="post-preview">
                 <div class="row text-center justify-content-center align-items-centers">
                     <h2 class="text-primary">Schéma d'anatomie des champignions</h2>
                     <img src="/static/assets/img/schema_champignon.jpg">
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
