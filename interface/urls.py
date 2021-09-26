@@ -9,5 +9,6 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('atoz', views.atoz, name="atoz"),
     path("explore/", views.SearchResults.as_view(), name="search_list"),
-    
+    path("mushroom/<int:mushroom_id>/", views.mushroom_details, name="mushroom")
+
 ]

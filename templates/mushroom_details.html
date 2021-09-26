@@ -1,0 +1,254 @@
+{% extends "index.html" %}
+
+{% block body_content %}
+{% load static %}
+<body>
+<header class="masthead"
+    style="background-image: url('/static/assets/img/mushroom-4189972_1920.jpg')">
+</header>
+<section class="page-section">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center">
+        <div class="bg-white col-10 col-lg-6 rounded">
+            <div class="col-auto text-secondary mt-5 text-center">
+                <h4 class="text-secondary">fiche champignion</h4>
+                <h3 class="text-primary">{{ mushrooms.espece }}</h3>
+            </div>
+                <div class="card mx-3 shadow p-3 mb-5 bg_white border-primary rounded flex-fill">
+                    {% if mushrooms.comestibilite == "bon comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/excellent.png" WIDTH=70 HEIGHT=70 />
+                    </div>
+                    {% elif mushrooms.comestibilite == "comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=70 HEIGHT=70 />
+                    </div>
+                    {% elif mushrooms.comestibilite == "mauvais comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/orange.png" WIDTH=70 HEIGHT=70 />
+                    </div>
+                    {% elif mushrooms.comestibilite == "non comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/Daco_4461294.png" WIDTH=70 HEIGHT=70 />
+                    </div>
+                    {% elif mushrooms.comestibilite == "toxique" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/clipart343879.png" WIDTH=70 HEIGHT=70 />
+                    </div>
+                    {% elif mushrooms.comestibilite == "mortel" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=70 HEIGHT=70 />
+                    </div>
+                    {% else %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/pngegg.png" WIDTH=70 HEIGHT=70 />
+                    </div>
+                    {% endif %}
+                    <img class="card-img-top" src="{{ mushrooms.image }}" style="object-fit: contain; height: 20em" />
+                    <div class="card-body">
+                        <h4 class="text-primary">noms</h4>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="text-primary">Espèce</td>
+                                    <td>{{ mushrooms.espece }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Nom vernaculaire / vulgaire</td>
+                                    <td>{{ mushrooms.nom_vernaculaire }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Synonymes</td>
+                                    <td>{{ mushrooms.synonymes}}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Autres</td>
+                                    <td>{{ mushrooms.qq}}</td>
+                                <tr>
+                            </tbody>
+                        </table>   
+                        <h4 class="text-primary">propriétés du chapeau</h4>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="text-primary">Couleur du chapeau</td>
+                                    <td>{{ mushrooms.couleur_du_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Diamètre minimum du chapeau (cm)</td>
+                                    <td>{{ mushrooms.diametre_minimum_du_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Diamètre maximum du chapeau (cm)</td>
+                                    <td>{{ mushrooms.diametre_maximum_du_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Forme chapeau</td>
+                                    <td>{{ mushrooms.forme_du_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Surface du chapeau</td>
+                                    <td>{{ mushrooms.surface_du_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Dessous du chapeau</td>
+                                    <td>{{ mushrooms.dessous_du_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Couleur au dessous du chapeau</td>
+                                    <td>{{ mushrooms.couleur_au_dessous_du_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Type lamelles</td>
+                                    <td>{{ mushrooms.type_de_lamelles }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Espace entre les lamelles</td>
+                                    <td>{{ mushrooms.espace_entre_les_lamelles }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Type de marge</td>
+                                    <td>{{ mushrooms.type_de_marge }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Couleur de la marge</td>
+                                    <td>{{ mushrooms.couleur_de_la_marge }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Oxydation du chapeau</td>
+                                    <td>{{ mushrooms.oxydation_du_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Couleur de l'oxydation du chapeau</td>
+                                    <td>{{ mushrooms.couleur_de_l_oxydation_du_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Mode d'insertion du dessous du chapeau avec le pied</td>
+                                    <td>{{ mushrooms.mode_d_insertion_du_dessous_du_chapeau_avec_le_pied }}</td>
+                                <tr>
+                            </tbody>
+                        </table>
+                        <h4 class="text-primary">propriétés du pied</h4>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="text-primary">Pied creux ou plein</td>
+                                    <td>{{ mushrooms.pïed_creux_ou_plein }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Forme du pied</td>
+                                    <td>{{ mushrooms.forme_du_pied }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Surface du pied</td>
+                                    <td>{{ mushrooms.surface_du_pied }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Position du pied par rapport au chapeau</td>
+                                    <td>{{ mushrooms.position_du_pied_par_rapport_au_chapeau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Presence d'un anneau</td>
+                                    <td>{{ mushrooms.presence_d_un_anneau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Orientation de l'anneau</td>
+                                    <td>{{ mushrooms.orientation_de_l_anneau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Mobilité de l'anneau</td>
+                                    <td>{{ mushrooms.mobilite_de_l_anneau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Couleur de l'anneau</td>
+                                    <td>{{ mushrooms.couleur_de_l_anneau }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Couleur de la base du pied</td>
+                                    <td>{{ mushrooms.couleur_de_la_base_du_pied }}</td>
+                                <tr>
+                            </tbody>
+                        </table>
+                        <h4 class="text-primary">propriétés de la chair</h4>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="text-primary">Couleur de la chair</td>
+                                    <td>{{ mushrooms.couleur_de_la_chair }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Oxydation de la chair</td>
+                                    <td>{{ mushrooms.oxydation_de_la_chair }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Couleur de l'oxydation</td>
+                                    <td>{{ mushrooms.couleur_de_l_oxydation }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Fermeté de la chair</td>
+                                    <td>{{ mushrooms.fermete_de_la_chair }}</td>
+                                <tr>
+                            </tbody>
+                        </table>
+                        <h4 class="text-primary">Autres caractéristiques</h4>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="text-primary">Odeur</td>
+                                    <td>{{ mushrooms.odeur }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Latex</td>
+                                    <td>{{ mushrooms.latex }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Couleur du latex</td>
+                                    <td>{{ mushrooms.couleur_du_latex }}</td>
+                                <tr>
+                            </tbody>
+                        </table>
+                        <h4 class="text-primary">Environnement et poussées</h4>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="text-primary">Mois de poussées le plus tôt</td>
+                                    <td>{{ mushrooms.mois_de_poussees_le_plus_tot }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Mois de poussées le plus tard</td>
+                                    <td>{{ mushrooms.mois_de_poussees_le_plus_tard }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Milieu</td>
+                                    <td>{{ mushrooms.milieu }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Pousée en touffe (groupe)</td>
+                                    <td>{{ mushrooms.poussee_en_touffe }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Pousse sur du bois</td>
+                                    <td>{{ mushrooms.pousse_sur_du_bois_ou_non }}</td>
+                                <tr>
+                            </tbody>
+                        </table>
+                        <h4 class="text-primary">Informations complémentaires</h4>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="text-primary">Commentaires</td>
+                                    <td>{{ mushrooms.commentaires }}</td>
+                                <tr>
+                                <tr>
+                                    <td class="text-primary">Comestibilité</td>
+                                    <td>{{ mushrooms.comestibilite }}</td>
+                                <tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+{% endblock %}
