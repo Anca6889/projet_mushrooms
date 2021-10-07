@@ -1,0 +1,112 @@
+{% extends "index.html" %}
+
+{% block body_content %}
+
+<body>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('/static/assets/img/huge-umbrellas-5571859_1920.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h1>Moteur d'identification</h1>
+                        <span class="subheading">Résultats</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content-->
+    <section class="page-section">
+        <div class="row text-center justify-content-center align-items-centers">
+            <p class="text-primary">Vous avez sélectionné <b>{{ color_top }}</b> pour la couleur du chapeau</p>
+            <p class="text-primary">Vous avez sélectionné <b>{{ form }}</b> pour le dessous du chapeau</p>
+            <p class="text-primary">Vous avez sélectionné <b>{{ color_under }}</b> pour la couleur en-dessous du chapeau</p>
+            <p class="text-primary">Vous avez sélectionné <b>{{ ring }}</b> pour la présence d'un anneau sur le pied</p>
+            <h2 class="post-title text-primary">Voici les résultats pouvant correspondres : </h2>
+            <hr class="my-4" />
+        </div>
+    </section>
+    {% if mushrooms %}
+    <section class="page-section">
+        <div class="row text-center justify-content-center align-items-centers">
+            {% for mushroom in mushrooms %}
+            <div class="col-lg-4 col-md-12 d-flex align-items-stretch">
+                <div class="card mx-3 shadow p-3 mb-5 bg_white border-primary rounded flex-fill">
+                    {% if mushroom.comestibilite == "bon comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/excellent.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "mauvais comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/orange.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "non comestible" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/Daco_4461294.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "toxique" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/clipart343879.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% elif mushroom.comestibilite == "mortel" %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% else %}
+                    <div class="d-flex flex-row-reverse mb-1">
+                        <img src="/static/assets/img/pngegg.png" WIDTH=50 HEIGHT=50 />
+                    </div>
+                    {% endif %}
+                    <img class="card-img-top" src="{{ mushroom.image }}" style="object-fit: contain; height: 20em" />
+                    <div class="card-body">
+                        <div class="text-primary"><br> {{ mushroom.espece }} <br></div>
+                        <div class="text-secondary"> <em>{{ mushroom.nom_vernaculaire }}</em><br><br></div>
+                        <div class="text-secondary"> <em>{{ mushroom.comestibilite }}</em><br><br></div>
+                    </div>
+                    <div class="card-footer row">
+                        {% if user.is_authenticated %}
+                            {% if mushroom.is_fav %}
+                            <a href="{% url 'add_or_remove_favorite' mushroom.id %}" class="bi bi-heart-fill" style="font-size: 2rem" role="button"
+                                data-toggle="tooltip" data-placement="bottom" title="Retirer des favoris"></a>
+                            {% else %}
+                            <a href="{% url 'add_or_remove_favorite' mushroom.id %}" class="bi bi-heart" style="font-size: 2rem" role="button"
+                                data-toggle="tooltip" data-placement="bottom" title="Ajouter aux favoris"></a>
+                            {% endif %}
+                        {% endif %}
+                        <a href="{% url 'mushroom' mushroom.id %}" class="btn btn-outline-primary mt-2" role="button">Fiche
+                            complète</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <hr class="my-4" />
+        <div class="row text-center justify-content-center align-items-centers">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <a href="{% url 'index' %}" class="btn btn-outline-primary mt-2" role="button">Page d'acceuil</a>
+                <hr class="my-4" />
+            </div>
+        </div>
+    </section>
+    {% else %}
+    <section class="page-section">
+        <div class="row text-center justify-content-center align-items-centers">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p class="text-primary">Désolé nous n'avons trouvé aucuns résultats pouvant correspondres à vos critères</p>
+                <img src="/static/assets/img/mushroom-mushroommovie.gif" WIDTH=200 HEIGHT=200/>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <a href="{% url 'index' %}" class="btn btn-outline-primary mt-2" role="button">Page d'acceuil</a>
+                <hr class="my-4" />
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</body>
+
+{% endblock %}

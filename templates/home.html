@@ -2,7 +2,7 @@
 
 {% block body_content %}
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('static/assets/img/mushrooms-3686917_1920.jpg')">
+<header class="masthead" style="background-image: url('/static/assets/img/mushrooms-3686917_1920.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -17,6 +17,7 @@
                         <button id="top-search-button" type="submit" class="btn p-0">
                             <i class="bi bi-search btn-primary p-2 rounded"></i>
                         </button>
+                        <p class="small text-white"><i>Note: Renseigner toujours les noms au singulier</i></p>
                     </form>
                 </div>
             </div>
@@ -26,34 +27,35 @@
 <!-- Main Content-->
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-md-10 col-lg-8 col-xl-7">
+        
             <!-- Post preview-->
             <div class="post-preview">
                 
                 <div class="row text-center justify-content-center align-items-centers">
-                    <h2 class="post-title text-primary">Recherche par moteur d'identification à 3 clics</h2>
-                    <h5 class="post-subtitle text-primary">Répondez aux questions posés par l'assistant puis regardez les espèces pouvant correspondres</h5>
-                    <p>
-                        quel est la couleur du chapeau ?
+                    <h2 class="post-title text-primary">Recherche par moteur d'identification à 4 clics</h2>
+                    <p>Répondez aux questions posées en cliquant sur les images puis regardez les espèces pouvant correspondres.</p>
+                    <p><i>Note: Les couleurs peuvent parfois être ambiguës ou multiples. Le moteur essaie d'en tenir compte. Désignez la couleur la plus dominante selon vous</i></p>
+                    <p class="text-primary">
+                        quel est la couleur du dessus du chapeau ?
                     </p>
-                    <div class="col-4 d-flex flex-column">
-                        <img class src= "static\assets\img\blanc.jpg">  
+                    <div class="col">
+                        <a href="{% url 'engine2' color_top='blanc' %}"><img class src= "/static/assets/img/blanc.jpg" WIDTH=150 HEIGHT=150></a>
                         <p>Blanc, gris ou crème</p>
                     </div>
-                    <div class="col-4 d-flex flex-column">
-                        <img class src="static\assets\img\brun.jpg">
+                    <div class="col">
+                        <a href="{% url 'engine2' color_top='brun' %}"><img class src="/static/assets/img/brun.jpg" WIDTH=150 HEIGHT=150></a>
                         <p>Brun ou noir</p>
                     </div>
-                    <div class="col-4 d-flex flex-column">
-                        <img class src="static\assets\img\rouge.jpg">
+                    <div class="col">
+                        <a href="{% url 'engine2' color_top='rouge' %}"><img class src="/static/assets/img/rouge.jpg" WIDTH=150 HEIGHT=150></a>
                         <p>Rouge</p>
                     </div>
-                    <div class="col-4 d-flex flex-column">
-                        <img class src="static\assets\img\jaune.jpg">
+                    <div class="col">
+                        <a href="{% url 'engine2' color_top='jaune' %}"><img class src="/static/assets/img/jaune.jpg" WIDTH=150 HEIGHT=150></a>
                         <p>Jaune ou orange</p>
                     </div>
-                    <div class="col-4 d-flex flex-column">
-                        <img class src="static\assets\img\rose.jpg">
+                    <div class="col">
+                        <a href="{% url 'engine2' color_top='autre' %}"><img class src="/static/assets/img/rose.jpg" WIDTH=150 HEIGHT=150></a>
                         <p>Autre (rose, bleu etc...)</p>
                     </div>
                 </div>
@@ -69,27 +71,27 @@
                     <img src="/static/assets/img/pexels-polina-tankilevitch-5848425.png">
                     <div class="col">
                         <a href="{% url 'sort_by_edible_very_good' %}"><img src="/static/assets/img/excellent.png" WIDTH=70 HEIGHT=70 /> </a>
-                        <p>Bon comestible<p>
+                        <p>Les bons comestibles<p>
                     </div>
                     <div class="col">
                         <a href="{% url 'sort_by_edible_good' %}"><img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=70 HEIGHT=70 /></a>
-                        <p>Comestible</p>
+                        <p>Les comestibles</p>
                     </div>
                     <div class="col">
-                        <img src="/static/assets/img/orange.png" WIDTH=70 HEIGHT=70 />
-                        <p>Mauvais comestible</p>
+                        <a href="{% url 'sort_by_edible_bad_good' %}"><img src="/static/assets/img/orange.png" WIDTH=70 HEIGHT=70 /></a>
+                        <p>Les mauvais comestibles</p>
                     </div>
                     <div class="col">
-                        <img src="/static/assets/img/Daco_4461294.png" WIDTH=70 HEIGHT=70 />
-                        <p>Non comestible</p>
+                        <a href="{% url 'sort_by_edible_bad' %}"><img src="/static/assets/img/Daco_4461294.png" WIDTH=70 HEIGHT=70 /></a>
+                        <p>Les non comestibles</p>
                     </div>
                     <div class="col">
                         <a href="{% url 'sort_by_edible_toxic' %}"><img src="/static/assets/img/clipart343879.png" WIDTH=70 HEIGHT=70 /></a>
-                        <p>Toxique</p>
+                        <p>Les toxiques</p>
                     </div>
                     <div class="col">
                         <a href="{% url 'sort_by_edible_deadly' %}"><img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=70 HEIGHT=70 /></a>
-                        <p>Mortel</p>
+                        <p>Les mortels</p>
                     </div>
                 </div>
             </div>

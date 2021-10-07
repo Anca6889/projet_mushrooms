@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Mushroom(models.Model):
 
@@ -47,6 +47,7 @@ class Mushroom(models.Model):
     synonymes = models.CharField(max_length=2000)
     qq = models.CharField(max_length=1000)
     image = models.CharField(max_length=2000, null=True)
+    favorites = models.ManyToManyField(User, related_name="favorites")
 
     def __str__(self):
         return self.espece

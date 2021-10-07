@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block body_content %}
+
+<body>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('/static/assets/img/huge-umbrellas-5571859_1920.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h1>Moteur d'identification</h1>
+                        <span class="subheading">Question 3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content-->
+    <section class="page-section">
+        <div class="row text-center justify-content-center align-items-centers">
+            <p class="text-primary">Vous avez sélectionné <b>{{ color_top }}</b> pour la couleur du chapeau</p>
+            <p class="text-primary">Vous avez sélectionné <b>{{ form }}</b> pour le dessous du chapeau</p>
+            <p class="text-primary">Vous avez sélectionné <b>{{ color_under }}</b> pour la couleur en-dessous du chapeau</p>
+            <h2 class="post-title text-primary">Y'a t'il un anneau sur le pied ? </h2>
+            <p><i>Note: Un anneau peut parfois se détacher du pied, essayer de repérer si il y'a une marque sur le pied pouvant correspondre à un ancien anneau</i></p>
+            <hr class="my-4" />
+            
+                <div class="col-md-4 col-lg-3">
+                    <a href="{% url 'engine_results' color_top=color_top form=form color_under=color_under ring='oui' %}"><img class
+                            src="/static/assets/img/anneau.jpg" WIDTH=200 HEIGHT=AUTO></a>
+                    <p>Oui</p>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <a href="{% url 'engine_results' color_top=color_top form=form color_under=color_under ring='non' %}"><img class
+                            src="/static/assets/img/sans.jpg" WIDTH=200 HEIGHT=AUTO></a>
+                    <p>Non</p>
+                </div>
+            
+        </div>
+    </section>
+</body>
+
+{% endblock %}

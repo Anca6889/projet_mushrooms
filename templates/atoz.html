@@ -12,6 +12,16 @@
                             <h2>Les champignions de A à Z </h2>
                             <span class="subheading">La base de donnée complète par ordre alphabétique des espèces</span>
                         </div>
+                        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                            <form method="get" action="{% url 'search_list' %}">
+                                <input id="home-search" name="search" type="text" placeholder="rechercher par nom" class="border-0 rounded p-1"
+                                    required>
+                                <button id="top-search-button" type="submit" class="btn p-0">
+                                    <i class="bi bi-search btn-primary p-2 rounded"></i>
+                                </button>
+                                <p class="small text-white"><i>Note: Renseigner toujours les noms au singulier</i></p>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -21,31 +31,34 @@
             <div class="row text-center justify-content-center align-items-centers">
                 
                 <h4 class="text-primary">Légende comestibilité</h4>
+                <p class="text-primary">(cliquer sur l'icone pour filtrer par comestibilité)</p>
                 <hr class="my-4" />
             </div>
             <div class="row text-center justify-content-center align-items-centers">
                 <div class="col">
-                    <img src="/static/assets/img/excellent.png" WIDTH=50 HEIGHT=50 />
+                    <a href="{% url 'sort_by_edible_very_good' %}"><img src="/static/assets/img/excellent.png" WIDTH=50 HEIGHT=50 /> </a>
                     <p>Bon comestible<p>
                 </div>
                 <div class="col">
-                    <img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=50 HEIGHT=50 />
+                    <a href="{% url 'sort_by_edible_good' %}"><img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png"
+                            WIDTH=50 HEIGHT=50 /></a>
                     <p>Comestible</p>
                 </div>
                 <div class="col">
-                    <img src="/static/assets/img/orange.png" WIDTH=50 HEIGHT=50 />
+                    <a href="{% url 'sort_by_edible_bad_good' %}"><img src="/static/assets/img/orange.png" WIDTH=50 HEIGHT=50 /></a>
                     <p>Mauvais comestible</p>
                 </div>
                 <div class="col">
-                    <img src="/static/assets/img/Daco_4461294.png" WIDTH=50 HEIGHT=50 />
+                    <a href="{% url 'sort_by_edible_bad' %}"><img src="/static/assets/img/Daco_4461294.png" WIDTH=50 HEIGHT=50 /></a>
                     <p>Non comestible</p>
                 </div>
                 <div class="col">
-                    <img src="/static/assets/img/clipart343879.png" WIDTH=50 HEIGHT=50 />
+                    <a href="{% url 'sort_by_edible_toxic' %}"><img src="/static/assets/img/clipart343879.png" WIDTH=50 HEIGHT=50 /></a>
                     <p>Toxique</p>
                 </div>
                 <div class="col">
-                    <img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=50 HEIGHT=50 />
+                    <a href="{% url 'sort_by_edible_deadly' %}"><img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=50
+                            HEIGHT=50 /></a>
                     <p>Mortel</p>
                 </div>
                 <div class="col">
@@ -96,6 +109,15 @@
                             <div class="text-secondary"> <em>{{ mushroom.comestibilite }}</em><br><br></div>
                         </div>
                         <div class="card-footer row">
+                            {% if user.is_authenticated %}
+                                {% if mushroom.is_fav %}
+                                <a href="{% url 'add_or_remove_favorite' mushroom.id %}" class="bi bi-heart-fill" style="font-size: 2rem"
+                                    role="button" data-toggle="tooltip" data-placement="bottom" title="Retirer des favoris"></a>
+                                {% else %}
+                                <a href="{% url 'add_or_remove_favorite' mushroom.id %}" class="bi bi-heart" style="font-size: 2rem" role="button"
+                                    data-toggle="tooltip" data-placement="bottom" title="Ajouter aux favoris"></a>
+                                {% endif %}
+                            {% endif %}
                             <a href="{% url 'mushroom' mushroom.id %}" class="btn btn-outline-primary mt-2" role="button">Fiche complète</a>
                         </div>
                     </div>

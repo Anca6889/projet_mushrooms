@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Fungi Finder</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/shroomicon.png' %}" />
+        <link rel="icon" type="image/x-icon" href="{% static '/assets/img/shroomicon.png' %}" />
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Font Awesome icons (free version)-->
@@ -31,9 +31,16 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'atoz' %}">champignions de A à Z</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'account' %}">Mon Compte</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'logout' %}">Se déconnecter</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'favorites' %}">Mes champignions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'favorites' %}"><img src="{% static '/assets/img/mario.png' %}"
+                                    width="40px" data-toggle="tooltip" data-placement="bottom" title="Mes champignons"></a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'login' %}">Se connecter</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'register' %}">S'inscrire</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

@@ -44,6 +44,17 @@
                     </div>
                     {% endif %}
                     <img class="card-img-top" src="{{ mushrooms.image }}" style="object-fit: contain; height: 20em" />
+                    <div class="d-flex flex-row justify-content-center my-3">
+                        {% if user.is_authenticated %}
+                            {% if mushrooms.is_fav %}
+                            <a href="{% url 'add_or_remove_favorite' mushrooms.id %}" class="bi bi-heart-fill" style="font-size: 2rem" role="button"
+                                data-toggle="tooltip" data-placement="bottom" title="Retirer des favoris"></a>
+                            {% else %}
+                            <a href="{% url 'add_or_remove_favorite' mushrooms.id %}" class="bi bi-heart" style="font-size: 2rem" role="button"
+                                data-toggle="tooltip" data-placement="bottom" title="Ajouter aux favoris"></a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
                     <div class="card-body">
                         <h4 class="text-primary">noms</h4>
                         <table class="table table-bordered">
