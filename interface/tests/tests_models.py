@@ -235,3 +235,7 @@ class Modelstests(TestCase):
     def test_image(self):
         result = self.mock_mushroom.image
         self.assertEqual(result, 'testimage')
+
+    def test___str__(self):
+        result = self.mock_mushroom.__str__()
+        self.assertEqual(result, 'amanita testa')
