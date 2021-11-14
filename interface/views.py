@@ -17,6 +17,12 @@ def index(request):
 
     return render(request, 'home.html')
 
+
+def info(request):
+    """Display the home page"""
+
+    return render(request, 'info.html')
+
 def atoz(request):
     """Display A to Z full list mushrooms"""
 
@@ -45,9 +51,10 @@ class SearchResults(ListView):
         Get the user input and return each product who contains the input
         in his name
         """
-
         query = self.request.GET.get("search")
         results = service.search_results_with_name(query)
+        results = service.sort_out_user_favorite_mushrooms(
+            results, user=self.request.user)
         return results
 
 def sort_by_edible_very_good(request):

@@ -30,11 +30,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'atoz' %}">champignions de A à Z</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'atoz' %}">champignons de A à Z</a></li>
                         {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'account' %}">Mon Compte</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'logout' %}">Se déconnecter</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'favorites' %}">Mes champignions</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'favorites' %}">Mes champignons</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'favorites' %}"><img src="{% static '/assets/img/mario.png' %}"
                                     width="40px" data-toggle="tooltip" data-placement="bottom" title="Mes champignons"></a></li>
                         {% else %}
@@ -55,23 +55,23 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <ul class="list-inline text-center">
                             <li class="list-inline-item">
-                                <a href="#!">
+                                <a href="{% url 'info' %}" title="Informations et mentions légales">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                        <i class="fas fa-info fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#!">
+                                <a href="https://www.linkedin.com/in/jean-maxime-guth-949212a8/" title="Linkedin Jean-Maxime GUTH">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                        <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#!">
+                                <a href="https://github.com/Anca6889/projet_mushrooms" title="Code source du projet">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -79,9 +79,14 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
                     </div>
-                </div>
+                </div>        
+            </div>
+            <div class="small text-center text-muted fst-italic">Site web codé par Jean-Maxime GUTH,<br> Données publiques des
+                champignons: <a
+                    href="https://www.data.gouv.fr/fr/datasets/donnees-du-site-identifier-les-champignons-com">https://www.data.gouv.fr/fr/datasets/donnees-du-site-identifier-les-champignons-com/</a>
+                Remerciements: Mathieu ANDRO<br> Provenance des images: Wikipedia, pexels.com, pixabay.com. Toutes les
+                images sont libre de droit.
             </div>
         </footer>
         <!-- Bootstrap core JS-->

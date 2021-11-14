@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'interface',
     'authentication',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,4 @@ AUTHENTICATION_BACKENDS = (
     'authentication.backend.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

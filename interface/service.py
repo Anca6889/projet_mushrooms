@@ -46,6 +46,10 @@ class Service:
             Q(espece__icontains=query) | Q(nom_vernaculaire__icontains=query)
         ).order_by("espece")
 
+###############################################################################
+
+#################### METHODS OF SORTING OUT BY EDIBILITY ####################
+
     def sort_by_edible_very_good(self):
 
         return Mushroom.objects.filter(

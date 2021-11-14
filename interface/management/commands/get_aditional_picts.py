@@ -19,7 +19,7 @@ class Command(BaseCommand):
             
             try:
 
-                url = 'https://en.wikipedia.org/w/api.php'
+                url = 'https://fr.wikipedia.org/w/api.php'
                 data = {
                     'action': 'query',
                     'format': 'json',

@@ -5,6 +5,7 @@ from progress.bar import FillingSquaresBar
 import requests
 import json
 
+
 class Command(BaseCommand):
 
     def launch_process(self):
@@ -29,11 +30,11 @@ class Command(BaseCommand):
             self.insert_mushrooms_in_db(data_dict)
 
     def insert_mushrooms_in_db(self, data_dict):
-        
+
         with FillingSquaresBar(
             "Poping database...",
                 max=len(data_dict), suffix="%(percent)d%%") as bar:
-                    
+
             for mushroom in data_dict:
 
                 try:
@@ -83,7 +84,7 @@ class Command(BaseCommand):
                     qq = mushroom['FIELD43']
 
                     try:
-                        
+
                         Mushroom.objects.get_or_create(
                             espece=espece,
                             diametre_minimum_du_chapeau=diametre_minimum_du_chapeau,
@@ -143,7 +144,7 @@ class Command(BaseCommand):
                 except KeyError:
                     pass
         bar.finish()
-        
+
     def handle(self, *args, **options):
         """Alow to use the Django command 'manage.py database'"""
 

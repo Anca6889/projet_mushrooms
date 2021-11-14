@@ -12,12 +12,12 @@
                 </class>
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <form method="get" action="{% url 'search_list' %}">
-                        <input id="home-search" name="search" type="text" placeholder="rechercher par nom" class="border-0 rounded p-1"
-                            required>
+                        <input id="home-search" name="search" type="text" placeholder="rechercher par nom"
+                            class="border-0 rounded p-1" required>
                         <button id="top-search-button" type="submit" class="btn p-0">
                             <i class="bi bi-search btn-primary p-2 rounded"></i>
                         </button>
-                        <p class="small text-white"><i>Note: Renseigner toujours les noms au singulier</i></p>
+                        <p class="small text-white"><i>Note: Renseignez toujours les noms au singulier</i></p>
                     </form>
                 </div>
             </div>
@@ -27,85 +27,117 @@
 <!-- Main Content-->
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
-        
-            <!-- Post preview-->
-            <div class="post-preview">
-                
-                <div class="row text-center justify-content-center align-items-centers">
-                    <h2 class="post-title text-primary">Recherche par moteur d'identification à 4 clics</h2>
-                    <p>Répondez aux questions posées en cliquant sur les images puis regardez les espèces pouvant correspondres.</p>
-                    <p><i>Note: Les couleurs peuvent parfois être ambiguës ou multiples. Le moteur essaie d'en tenir compte. Désignez la couleur la plus dominante selon vous</i></p>
-                    <p class="text-primary">
-                        quel est la couleur du dessus du chapeau ?
-                    </p>
-                    <div class="col">
-                        <a href="{% url 'engine2' color_top='blanc' %}"><img class src= "/static/assets/img/blanc.jpg" WIDTH=150 HEIGHT=150></a>
-                        <p>Blanc, gris ou crème</p>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'engine2' color_top='brun' %}"><img class src="/static/assets/img/brun.jpg" WIDTH=150 HEIGHT=150></a>
-                        <p>Brun ou noir</p>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'engine2' color_top='rouge' %}"><img class src="/static/assets/img/rouge.jpg" WIDTH=150 HEIGHT=150></a>
-                        <p>Rouge</p>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'engine2' color_top='jaune' %}"><img class src="/static/assets/img/jaune.jpg" WIDTH=150 HEIGHT=150></a>
-                        <p>Jaune ou orange</p>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'engine2' color_top='autre' %}"><img class src="/static/assets/img/rose.jpg" WIDTH=150 HEIGHT=150></a>
-                        <p>Autre (rose, bleu etc...)</p>
-                    </div>
+
+        <!-- Post preview-->
+        <div class="post-preview">
+
+            <div class="row text-center justify-content-center align-items-centers">
+                <h2 class="post-title text-primary">Recherche par moteur d'identification à 4 clics</h2>
+                <p>Répondez aux questions posées en cliquant sur les images puis regardez les espèces pouvant
+                    correspondre.</p>
+                <p><i>Note: Les couleurs peuvent parfois être ambiguës ou multiples. Le moteur essaie d'en tenir compte.
+                        Désignez la couleur la plus dominante selon vous</i></p>
+                <p class="text-primary">
+                    quelle est la couleur du dessus du chapeau ?
+                </p>
+                <div class="col">
+                    <a href="{% url 'engine2' color_top='blanc' %}"><img class src="/static/assets/img/blanc.jpg"
+                            WIDTH=150 HEIGHT=150></a>
+                    <p>Blanc, gris ou crème</p>
+                </div>
+                <div class="col">
+                    <a href="{% url 'engine2' color_top='brun' %}"><img class src="/static/assets/img/brun.jpg"
+                            WIDTH=150 HEIGHT=150></a>
+                    <p>Brun ou noir</p>
+                </div>
+                <div class="col">
+                    <a href="{% url 'engine2' color_top='rouge' %}"><img class src="/static/assets/img/rouge.jpg"
+                            WIDTH=150 HEIGHT=150></a>
+                    <p>Rouge</p>
+                </div>
+                <div class="col">
+                    <a href="{% url 'engine2' color_top='jaune' %}"><img class src="/static/assets/img/jaune.jpg"
+                            WIDTH=150 HEIGHT=150></a>
+                    <p>Jaune ou orange</p>
+                </div>
+                <div class="col">
+                    <a href="{% url 'engine2' color_top='autre' %}"><img class src="/static/assets/img/rose.jpg"
+                            WIDTH=150 HEIGHT=150></a>
+                    <p>Autre (rose, bleu etc...)</p>
                 </div>
             </div>
-            <!-- Divider-->
-            <hr class="my-4" />
-            <!-- Post preview-->
-            <div class="post-preview">
-                <div class="row my-4 text-center justify-content-center align-items-centers">
-                    <h2 class="text-primary">Trier par comestibilité</h2>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4" />
+        <!-- Post preview-->
+        <div class="post-preview">
+            <div class="row my-4 text-center justify-content-center align-items-centers">
+                <h2 class="text-primary">Trier par comestibilité</h2>
+            </div>
+            <div class="row text-center justify-content-center align-items-centers">
+                <img src="/static/assets/img/pexels-polina-tankilevitch-5848425.png">
+                <div class="col">
+                    <a href="{% url 'sort_by_edible_very_good' %}"><img src="/static/assets/img/excellent.png" WIDTH=70
+                            HEIGHT=70 /> </a>
+                    <p>Les bons comestibles
+                    <p>
                 </div>
-                <div class="row text-center justify-content-center align-items-centers">
-                    <img src="/static/assets/img/pexels-polina-tankilevitch-5848425.png">
-                    <div class="col">
-                        <a href="{% url 'sort_by_edible_very_good' %}"><img src="/static/assets/img/excellent.png" WIDTH=70 HEIGHT=70 /> </a>
-                        <p>Les bons comestibles<p>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'sort_by_edible_good' %}"><img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=70 HEIGHT=70 /></a>
-                        <p>Les comestibles</p>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'sort_by_edible_bad_good' %}"><img src="/static/assets/img/orange.png" WIDTH=70 HEIGHT=70 /></a>
-                        <p>Les mauvais comestibles</p>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'sort_by_edible_bad' %}"><img src="/static/assets/img/Daco_4461294.png" WIDTH=70 HEIGHT=70 /></a>
-                        <p>Les non comestibles</p>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'sort_by_edible_toxic' %}"><img src="/static/assets/img/clipart343879.png" WIDTH=70 HEIGHT=70 /></a>
-                        <p>Les toxiques</p>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'sort_by_edible_deadly' %}"><img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=70 HEIGHT=70 /></a>
-                        <p>Les mortels</p>
-                    </div>
+                <div class="col">
+                    <a href="{% url 'sort_by_edible_good' %}"><img
+                            src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=70 HEIGHT=70 /></a>
+                    <p>Les comestibles</p>
+                </div>
+                <div class="col">
+                    <a href="{% url 'sort_by_edible_bad_good' %}"><img src="/static/assets/img/orange.png" WIDTH=70
+                            HEIGHT=70 /></a>
+                    <p>Les mauvais comestibles</p>
+                </div>
+                <div class="col">
+                    <a href="{% url 'sort_by_edible_bad' %}"><img src="/static/assets/img/Daco_4461294.png" WIDTH=70
+                            HEIGHT=70 /></a>
+                    <p>Les non comestibles</p>
+                </div>
+                <div class="col">
+                    <a href="{% url 'sort_by_edible_toxic' %}"><img src="/static/assets/img/clipart343879.png" WIDTH=70
+                            HEIGHT=70 /></a>
+                    <p>Les toxiques</p>
+                </div>
+                <div class="col">
+                    <a href="{% url 'sort_by_edible_deadly' %}"><img
+                            src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=70 HEIGHT=70 /></a>
+                    <p>Les mortels</p>
                 </div>
             </div>
-            <!-- Divider-->
-            <hr class="my-4" />
-            <!-- Post preview-->
-            <div class="post-preview">
-                <div class="row text-center justify-content-center align-items-centers">
-                    <h2 class="text-primary">Schéma d'anatomie des champignions</h2>
-                    <img src="/static/assets/img/schema_champignon.jpg">
-                </div>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4" />
+        <!-- Post preview-->
+        <div class="post-preview">
+            <div class="row text-center justify-content-center align-items-centers">
+                <h2 class="text-primary">Schéma d'anatomie des champignons</h2>
+                <img src="/static/assets/img/schema_champignon.jpg">
             </div>
-            
+        </div>
+        <hr class="my-4" />
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-12 rounded">
+                <img src="/static/assets/img/clipart343879.png" WIDTH=75 HEIGHT=75 />
+                <h3 class="text-primary mt-3 text-center"> Avertisssement </h3>
+                <p>Ce site ne contient pas toutes les espèces de champignons qui existent. Par ailleurs, nombreuses sont
+                    encore
+                    à
+                    découvrir. Il s’agit avant tout d’une aide à l’identification. En cas de doute il vaut mieux
+                    s’abstenir. De
+                    plus,
+                    l'aspect d’un champignon peut varier au cours du temps. Certaines espèces comestibles peuvent
+                    ressembler et
+                    être
+                    confondues avec d'autres espèces toxiques. Si le moindre doute persiste, renoncez à votre
+                    cueillette.
+                    L'auteur du site décline toute responsabilité dans vos décisions.</p>
+            </div>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}

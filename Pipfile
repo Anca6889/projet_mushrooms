@@ -9,6 +9,8 @@ psycopg2 = "*"
 requests = "*"
 progress = "*"
 wikipedia = "*"
+django-crispy-forms = "*"
+coverage = "*"
 
 [dev-packages]
 
