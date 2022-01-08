@@ -21,7 +21,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.contrib import messages
-from django.views import generic
 from .forms import RegisterForm, LoginForm
 
 
@@ -35,18 +34,19 @@ def register(request):
         form = RegisterForm(request.POST)
 
         if form.is_valid():
-            messages.success(
-                request, "Votre compte a été crée avec succès !")
+            messages.success(request, "Votre compte a été crée avec succès !")
             user = form.save()
-            login(request, user,
-                  backend='authentication.backend.AuthenticationBackend')
-            return redirect(reverse('register'))
+            login(
+                request, user,
+                backend="authentication.backend.AuthenticationBackend"
+                )
+            return redirect(reverse("register"))
         else:
             print(form.errors)
             for field in form.errors:
                 print(field)
 
-    context = {'form': form}
+    context = {"form": form}
     return render(request, "register.html", context)
 
 
@@ -69,7 +69,7 @@ def sign_in(request):
         else:
             messages.error(request, "L'email ou le mot de passe est incorrect")
 
-    context = {'form': form}
+    context = {"form": form}
     return render(request, "login.html", context)
 
 
@@ -89,12 +89,15 @@ def sign_out(request):
     logout(request)
     return render(request, "home.html")
 
+
 class PasswordsChangeView(PasswordChangeView):
     from_class = PasswordChangeForm
-    success_url = reverse_lazy('password_success')
+    success_url = reverse_lazy("password_success")
+
 
 def password_success(request):
-    return render (request, 'password_success.html')
+    return render(request, "password_success.html")
+
 
 def password_reset_request(request):
     """Manage to reset user password"""
@@ -103,8 +106,9 @@ def password_reset_request(request):
         password_reset_form = PasswordResetForm(request.POST)
         if password_reset_form.is_valid():
             messages.success(
-                request, "Email de réinitialisation du mot de passe envoyé !")
-            data = password_reset_form.cleaned_data['email']
+                request, "Email de réinitialisation du mot de passe envoyé !"
+            )
+            data = password_reset_form.cleaned_data["email"]
             associated_users = User.objects.filter(Q(email=data))
             if associated_users.exists():
                 for user in associated_users:
@@ -112,19 +116,28 @@ def password_reset_request(request):
                     email_template_name = "password_reset_email.txt"
                     c = {
                         "email": user.email,
-                        'domain': '127.0.0.1:8000',
-                        'site_name': 'Website',
+                        "domain": "127.0.0.1:8000",
+                        "site_name": "Website",
                         "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                         "user": user,
-                        'token': default_token_generator.make_token(user),
-                        'protocol': 'http',
+                        "token": default_token_generator.make_token(user),
+                        "protocol": "http",
                     }
                     email = render_to_string(email_template_name, c)
                     try:
-                        send_mail(subject, email, 'guth.jeanmaxime@gmail.com',
-                                  [user.email], fail_silently=False)
+                        send_mail(
+                            subject,
+                            email,
+                            "guth.jeanmaxime@gmail.com",
+                            [user.email],
+                            fail_silently=False,
+                        )
                     except BadHeaderError:
-                        return HttpResponse('Invalid header found.')
+                        return HttpResponse("Invalid header found.")
                     return redirect("/password_reset")
     password_reset_form = PasswordResetForm()
-    return render(request=request, template_name="password_reset.html", context={"password_reset_form": password_reset_form})
+    return render(
+        request=request,
+        template_name="password_reset.html",
+        context={"password_reset_form": password_reset_form},
+    )

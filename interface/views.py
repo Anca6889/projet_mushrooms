@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.views.generic.base import TemplateResponse
@@ -9,19 +8,18 @@ from interface.service import Service
 
 service = Service()  # Load all the necessary methods from service.py
 
-# Create your views here.
-
 
 def index(request):
     """Display the home page"""
 
-    return render(request, 'home.html')
+    return render(request, "home.html")
 
 
 def info(request):
     """Display the home page"""
 
-    return render(request, 'info.html')
+    return render(request, "info.html")
+
 
 def atoz(request):
     """Display A to Z full list mushrooms"""
@@ -32,6 +30,7 @@ def atoz(request):
     context = service.set_mushrooms_context(mushrooms)
     return render(request, "atoz.html", context)
 
+
 def mushroom_details(request, mushroom_id):
     """Go to mushroom detail page"""
     user = request.user
@@ -39,6 +38,7 @@ def mushroom_details(request, mushroom_id):
     mushroom = service.sort_out_if_mushroom_is_favorite(mushroom, user)
     context = service.set_mushrooms_context(mushroom)
     return render(request, "mushroom_details.html", context)
+
 
 class SearchResults(ListView):
     """Will display the 1st products page results with input of user"""
@@ -54,8 +54,10 @@ class SearchResults(ListView):
         query = self.request.GET.get("search")
         results = service.search_results_with_name(query)
         results = service.sort_out_user_favorite_mushrooms(
-            results, user=self.request.user)
+            results, user=self.request.user
+        )
         return results
+
 
 def sort_by_edible_very_good(request):
 
@@ -110,21 +112,23 @@ def sort_by_edible_deadly(request):
     context = service.set_mushrooms_context(mushrooms)
     return render(request, "sort_by_edible_deadly.html", context)
 
+
 def engine2(request, color_top):
-    
+
     args = {}
     color_top = color_top
-    args['color_top'] = color_top
-    
+    args["color_top"] = color_top
+
     return TemplateResponse(request, "engine2.html", args)
 
+
 def engine3(request, color_top, form):
-    
+
     args = {}
     color_top = color_top
     form = form
-    args['color_top'] = color_top
-    args['form'] = form
+    args["color_top"] = color_top
+    args["form"] = form
 
     return TemplateResponse(request, "engine3.html", args)
 
@@ -135,11 +139,12 @@ def engine4(request, color_top, form, color_under):
     color_top = color_top
     form = form
     color_under = color_under
-    args['color_top'] = color_top
-    args['form'] = form
-    args['color_under'] = color_under
+    args["color_top"] = color_top
+    args["form"] = form
+    args["color_under"] = color_under
 
     return TemplateResponse(request, "engine4.html", args)
+
 
 def engine_results(request, color_top, form, color_under, ring):
 
@@ -149,10 +154,10 @@ def engine_results(request, color_top, form, color_under, ring):
     color_top = color_top
     form = form
     color_under = color_under
-    args['color_top'] = color_top
-    args['form'] = form
-    args['color_under'] = color_under
-    args['ring'] = ring
+    args["color_top"] = color_top
+    args["form"] = form
+    args["color_under"] = color_under
+    args["ring"] = ring
 
     if color_top == "blanc":
         first_sort_color_top = service.sort_by_color_top_white()
@@ -166,28 +171,46 @@ def engine_results(request, color_top, form, color_under, ring):
         first_sort_color_top = service.sort_by_color_top_other()
 
     if form == "lamelles":
-       second_sort_form = service.sort_by_lamelles(first_sort_color_top)
+        second_sort_form = service.sort_by_lamelles(
+            first_sort_color_top
+            )
     elif form == "tubes":
-       second_sort_form = service.sort_by_tubes(first_sort_color_top)
+        second_sort_form = service.sort_by_tubes(
+            first_sort_color_top
+            )
     elif form == "plis fourchus":
-       second_sort_form = service.sort_by_plis(first_sort_color_top)
+        second_sort_form = service.sort_by_plis(
+            first_sort_color_top
+            )
     elif form == "aiguillons":
-       second_sort_form = service.sort_by_aiguillons(first_sort_color_top)
+        second_sort_form = service.sort_by_aiguillons(
+            first_sort_color_top
+            )
     else:
-       second_sort_form = service.sort_by_no_lamelles_and_tubes(
-           first_sort_color_top)
+        second_sort_form = service.sort_by_no_lamelles_and_tubes(
+            first_sort_color_top
+            )
 
     if color_under == "blanc":
-        third_sort_color_under = service.sort_by_color_under_white(second_sort_form)
+        third_sort_color_under = service.sort_by_color_under_white(
+            second_sort_form
+            )
     elif color_under == "jaune":
-        third_sort_color_under = service.sort_by_color_under_yellow(second_sort_form)
+        third_sort_color_under = service.sort_by_color_under_yellow(
+            second_sort_form
+            )
     elif color_under == "brun":
-        third_sort_color_under = service.sort_by_color_under_brown(second_sort_form)
+        third_sort_color_under = service.sort_by_color_under_brown(
+            second_sort_form
+            )
     elif color_under == "rouge":
-        third_sort_color_under = service.sort_by_color_under_red(second_sort_form)
+        third_sort_color_under = service.sort_by_color_under_red(
+            second_sort_form
+            )
     else:
         third_sort_color_under = service.sort_by_color_under_other(
-            second_sort_form)
+            second_sort_form
+            )
 
     if ring == "oui":
         final_results = service.sort_by_ring(third_sort_color_under)
@@ -196,8 +219,10 @@ def engine_results(request, color_top, form, color_under, ring):
 
     mushrooms = service.sort_out_user_favorite_mushrooms(final_results, user)
     context = service.set_final_engine_context(
-        color_top, form, color_under, ring, final_results)
+        color_top, form, color_under, ring, final_results
+    )
     return TemplateResponse(request, "engine_results.html", context)
+
 
 @login_required()
 def add_or_remove_favorite(request, mushroom_id):

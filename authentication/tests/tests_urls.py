@@ -23,7 +23,7 @@ class UrlsTests(SimpleTestCase):
     def test_account_url_is_resolved(self):
         url = reverse("account")
         self.assertEquals(resolve(url).func, views.account)
-    
+
     def test_password_reset_url_is_resolved(self):
         url = reverse("password_reset")
         self.assertEquals(resolve(url).func, views.password_reset_request)

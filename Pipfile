@@ -11,6 +11,7 @@ progress = "*"
 wikipedia = "*"
 django-crispy-forms = "*"
 coverage = "*"
+flake8 = "*"
 
 [dev-packages]
 

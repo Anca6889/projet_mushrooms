@@ -2,7 +2,6 @@ from django.core.management.base import BaseCommand
 from django.db.utils import DataError, IntegrityError
 from interface.models import Mushroom
 from progress.bar import FillingSquaresBar
-import requests
 import json
 
 

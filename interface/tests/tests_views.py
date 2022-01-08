@@ -76,7 +76,7 @@ class Viewstests(TestCase):
         self.main = reverse("index")
         self.info = reverse("info")
         self.atoz = reverse("atoz")
-        self.search_list= reverse("search_list")+"?search=testname"
+        self.search_list = reverse("search_list")+"?search=testname"
         self.mushroom_details = reverse("mushroom", args=[1])
         self.sort_by_edible_very_good = reverse("sort_by_edible_very_good")
         self.sort_by_edible_good = reverse("sort_by_edible_good")
@@ -124,12 +124,12 @@ class Viewstests(TestCase):
         response = self.client.get(self.sort_by_edible_good)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "sort_by_edible_good.html")
-    
+
     def test_sort_by_edible_bad_good(self):
         response = self.client.get(self.sort_by_edible_bad_good)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "sort_by_edible_bad_good.html")
-    
+
     def test_sort_by_edible_bad(self):
         response = self.client.get(self.sort_by_edible_bad)
         self.assertEqual(response.status_code, 200)
@@ -144,7 +144,7 @@ class Viewstests(TestCase):
         response = self.client.get(self.sort_by_edible_deadly)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "sort_by_edible_deadly.html")
-    
+
     def test_engine2(self):
         response = self.client.get(self.engine2)
         self.assertEqual(response.status_code, 200)
