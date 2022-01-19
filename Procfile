@@ -1,1 +1,1 @@
-web: python manage.py collectstatic --no-input; gunicorn projectmushrooms.wsgi --log-file - --log-level debug
+web: gunicorn projectmushrooms.wsgi --log-file -
