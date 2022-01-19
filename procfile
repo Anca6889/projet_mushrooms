@@ -1,1 +1,0 @@
-web: gunicorn projectmushrooms.wsgi --log-file -
