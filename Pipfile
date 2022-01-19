@@ -12,6 +12,8 @@ wikipedia = "*"
 django-crispy-forms = "*"
 coverage = "*"
 flake8 = "*"
+django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
