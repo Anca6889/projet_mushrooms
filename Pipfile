@@ -14,7 +14,6 @@ coverage = "*"
 flake8 = "*"
 django-heroku = "*"
 gunicorn = "*"
-whitenoise = "*"
 
 [dev-packages]
 
