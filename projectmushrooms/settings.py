@@ -135,8 +135,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # try disabling it
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_MANIFEST_STRICT = False
