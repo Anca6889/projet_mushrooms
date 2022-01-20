@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3c3ad27e84a3703cbb17822c15c93fb73cf8955937e02b5f6b62f9b94107d169"
+            "sha256": "5ff2bd6d1e717d347841b0040469710c051b2bf9e82695c4db9fbc9a967306e8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -210,6 +210,14 @@
             "index": "pypi",
             "version": "==2.27.1"
         },
+        "sentry-sdk": {
+            "hashes": [
+                "sha256:2cec50166bcb67e1965f8073541b2321e3864cd6fd42a526bcde9f0c4e4cc3f8",
+                "sha256:7bbaa32bba806ec629962f207b597e86831c7ee2c1f287c21ba7de7fea9a9c46"
+            ],
+            "index": "pypi",
+            "version": "==1.5.2"
+        },
         "soupsieve": {
             "hashes": [
                 "sha256:1a3cca2617c6b38c0343ed661b1fa5de5637f257d4fe22bd9f1338010a1efefb",
@@ -247,7 +255,7 @@
                 "sha256:d234b871b52271ae7ed6d9da47ffe857c76568f11dd30e28e18c5869dbd11e12",
                 "sha256:d963ef25639d1417e8a247be36e6aedd8c7c6f0a08adcb5a89146980a96b577c"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.5' and python_version < '4'",
             "version": "==5.3.0"
         },
         "wikipedia": {
