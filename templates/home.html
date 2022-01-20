@@ -1,8 +1,9 @@
 {% extends "index.html" %}
+{% load static %}
 
 {% block body_content %}
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('/static/assets/img/mushrooms-3686917_1920.jpg')">
+<header class="masthead" style="background-image: url({% static 'assets/img/mushrooms-3686917_1920.jpg' %})">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -41,27 +42,27 @@
                     quelle est la couleur du dessus du chapeau ?
                 </p>
                 <div class="col">
-                    <a href="{% url 'engine2' color_top='blanc' %}"><img class src="/static/assets/img/blanc.jpg"
+                    <a href="{% url 'engine2' color_top='blanc' %}"><img class src="{% static 'assets/img/blanc.jpg' %}"
                             WIDTH=150 HEIGHT=150></a>
                     <p>Blanc, gris ou crème</p>
                 </div>
                 <div class="col">
-                    <a href="{% url 'engine2' color_top='brun' %}"><img class src="/static/assets/img/brun.jpg"
+                    <a href="{% url 'engine2' color_top='brun' %}"><img class src="{% static 'assets/img/brun.jpg' %}"
                             WIDTH=150 HEIGHT=150></a>
                     <p>Brun ou noir</p>
                 </div>
                 <div class="col">
-                    <a href="{% url 'engine2' color_top='rouge' %}"><img class src="/static/assets/img/rouge.jpg"
+                    <a href="{% url 'engine2' color_top='rouge' %}"><img class src="{% static 'assets/img/rouge.jpg' %}"
                             WIDTH=150 HEIGHT=150></a>
                     <p>Rouge</p>
                 </div>
                 <div class="col">
-                    <a href="{% url 'engine2' color_top='jaune' %}"><img class src="/static/assets/img/jaune.jpg"
+                    <a href="{% url 'engine2' color_top='jaune' %}"><img class src="{% static 'assets/img/jaune.jpg' %}"
                             WIDTH=150 HEIGHT=150></a>
                     <p>Jaune ou orange</p>
                 </div>
                 <div class="col">
-                    <a href="{% url 'engine2' color_top='autre' %}"><img class src="/static/assets/img/rose.jpg"
+                    <a href="{% url 'engine2' color_top='autre' %}"><img class src="{% static 'assets/img/rose.jpg' %}"
                             WIDTH=150 HEIGHT=150></a>
                     <p>Autre (rose, bleu etc...)</p>
                 </div>
@@ -75,36 +76,36 @@
                 <h2 class="text-primary">Trier par comestibilité</h2>
             </div>
             <div class="row text-center justify-content-center align-items-centers">
-                <img src="/static/assets/img/pexels-polina-tankilevitch-5848425.png">
+                <img src="{% static 'assets/img/pexels-polina-tankilevitch-5848425.png' %}">
                 <div class="col">
-                    <a href="{% url 'sort_by_edible_very_good' %}"><img src="/static/assets/img/excellent.png" WIDTH=70
+                    <a href="{% url 'sort_by_edible_very_good' %}"><img src="{% static 'assets/img/excellent.png' %}" WIDTH=70
                             HEIGHT=70 /> </a>
                     <p>Les bons comestibles
                     <p>
                 </div>
                 <div class="col">
                     <a href="{% url 'sort_by_edible_good' %}"><img
-                            src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=70 HEIGHT=70 /></a>
+                            src="{% static 'assets/img/pngfind.com-thumbs-up-icon-png-59727.png' %}" WIDTH=70 HEIGHT=70 /></a>
                     <p>Les comestibles</p>
                 </div>
                 <div class="col">
-                    <a href="{% url 'sort_by_edible_bad_good' %}"><img src="/static/assets/img/orange.png" WIDTH=70
+                    <a href="{% url 'sort_by_edible_bad_good' %}"><img src="{% static 'assets/img/orange.png' %}" WIDTH=70
                             HEIGHT=70 /></a>
                     <p>Les mauvais comestibles</p>
                 </div>
                 <div class="col">
-                    <a href="{% url 'sort_by_edible_bad' %}"><img src="/static/assets/img/Daco_4461294.png" WIDTH=70
+                    <a href="{% url 'sort_by_edible_bad' %}"><img src="{% static 'assets/img/Daco_4461294.png' %}" WIDTH=70
                             HEIGHT=70 /></a>
                     <p>Les non comestibles</p>
                 </div>
                 <div class="col">
-                    <a href="{% url 'sort_by_edible_toxic' %}"><img src="/static/assets/img/clipart343879.png" WIDTH=70
+                    <a href="{% url 'sort_by_edible_toxic' %}"><img src="{% static 'assets/img/clipart343879.png' %}" WIDTH=70
                             HEIGHT=70 /></a>
                     <p>Les toxiques</p>
                 </div>
                 <div class="col">
                     <a href="{% url 'sort_by_edible_deadly' %}"><img
-                            src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=70 HEIGHT=70 /></a>
+                            src="{% static 'assets/img/SeekPng.com_red-skull-png_497283.png' %}" WIDTH=70 HEIGHT=70 /></a>
                     <p>Les mortels</p>
                 </div>
             </div>
@@ -115,13 +116,13 @@
         <div class="post-preview">
             <div class="row text-center justify-content-center align-items-centers">
                 <h2 class="text-primary">Schéma d'anatomie des champignons</h2>
-                <img src="/static/assets/img/schema_champignon.jpg">
+                <img src="{% static 'assets/img/schema_champignon.jpg' %}">
             </div>
         </div>
         <hr class="my-4" />
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
             <div class="col-12 rounded">
-                <img src="/static/assets/img/clipart343879.png" WIDTH=75 HEIGHT=75 />
+                <img src="{% static 'assets/img/clipart343879.png' %}" WIDTH=75 HEIGHT=75 />
                 <h3 class="text-primary mt-3 text-center"> Avertisssement </h3>
                 <p>Ce site ne contient pas toutes les espèces de champignons qui existent. Par ailleurs, nombreuses sont
                     encore
