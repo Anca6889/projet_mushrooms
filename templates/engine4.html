@@ -1,10 +1,11 @@
 {% extends "index.html" %}
+{% load static %}
 
 {% block body_content %}
 
 <body>
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('/static/assets/img/huge-umbrellas-5571859_1920.jpg')">
+    <header class="masthead" style="background-image: url({% static 'assets/img/huge-umbrellas-5571859_1920.jpg' %})">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -25,18 +26,16 @@
             <h2 class="post-title text-primary">Y a-t-il un anneau sur le pied ? </h2>
             <p><i>Note: Un anneau peut parfois se détacher du pied, essayer de repérer s'il y a une marque sur le pied pouvant correspondre à un ancien anneau</i></p>
             <hr class="my-4" />
-            
                 <div class="col-md-4 col-lg-3">
                     <a href="{% url 'engine_results' color_top=color_top form=form color_under=color_under ring='oui' %}"><img class
-                            src="/static/assets/img/anneau.jpg" WIDTH=200 HEIGHT=AUTO></a>
+                            src="{% static 'assets/img/anneau.jpg' %}" WIDTH=200 HEIGHT=AUTO></a>
                     <p>Oui</p>
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <a href="{% url 'engine_results' color_top=color_top form=form color_under=color_under ring='non' %}"><img class
-                            src="/static/assets/img/sans.jpg" WIDTH=200 HEIGHT=AUTO></a>
+                            src="{% static 'assets/img/sans.jpg' %}" WIDTH=200 HEIGHT=AUTO></a>
                     <p>Non</p>
                 </div>
-            
         </div>
     </section>
 </body>

@@ -4,7 +4,7 @@
 {% block body_content %}
 <body>
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('/static/assets/img/huge-umbrellas-5571859_1920.jpg')">
+    <header class="masthead" style="background-image: url({% static 'assets/img/huge-umbrellas-5571859_1920.jpg' %})">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -25,31 +25,31 @@
                 <div class="card mx-3 shadow p-3 mb-5 bg_white border-primary rounded flex-fill">
                     {% if mushroom.comestibilite == "bon comestible" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/excellent.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/excellent.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "comestible" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/pngfind.com-thumbs-up-icon-png-59727.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "mauvais comestible" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/orange.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/orange.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "non comestible" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/Daco_4461294.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/Daco_4461294.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "toxique" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/clipart343879.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/clipart343879.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "mortel" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/SeekPng.com_red-skull-png_497283.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% else %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/pngegg.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/pngegg.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% endif %}
                     <img class="card-img-top" src="{{ mushroom.image }}" style="object-fit: contain; height: 20em" />
@@ -90,7 +90,7 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <p class="text-primary">Vous n'avez aucun champignon enregistré
                 </p>
-                <img src="/static/assets/img/mushroom-mushroommovie.gif" WIDTH=200 HEIGHT=200 />
+                <img src="{% static 'assets/img/mushroom-mushroommovie.gif' %}" WIDTH=200 HEIGHT=200 />
             </div>
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <a href="{% url 'index' %}" class="btn btn-outline-primary mt-2" role="button">Page d'accueil</a>

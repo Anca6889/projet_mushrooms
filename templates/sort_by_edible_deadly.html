@@ -1,10 +1,11 @@
 {% extends "index.html" %}
+{% load static %}
 
 {% block body_content %}
 
 <body>
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('/static/assets/img/phalo.jpg')">
+    <header class="masthead" style="background-image: url({% static 'assets/img/phalo.jpg' %})">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -27,37 +28,37 @@
         </div>
         <div class="row text-center justify-content-center align-items-centers">
             <div class="col">
-                <a href="{% url 'sort_by_edible_very_good' %}"><img src="/static/assets/img/excellent.png" WIDTH=50
+                <a href="{% url 'sort_by_edible_very_good' %}"><img src="{% static 'assets/img/excellent.png' %}" WIDTH=50
                         HEIGHT=50 /> </a>
                 <p>Bon comestible<p>
             </div>
             <div class="col">
                 <a href="{% url 'sort_by_edible_good' %}"><img
-                        src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=50 HEIGHT=50 /></a>
+                        src="{% static 'assets/img/pngfind.com-thumbs-up-icon-png-59727.png' %}" WIDTH=50 HEIGHT=50 /></a>
                 <p>Comestible</p>
             </div>
             <div class="col">
-                <a href="{% url 'sort_by_edible_bad_good' %}"><img src="/static/assets/img/orange.png" WIDTH=50
+                <a href="{% url 'sort_by_edible_bad_good' %}"><img src="{% static 'assets/img/orange.png' %}" WIDTH=50
                         HEIGHT=50 /></a>
                 <p>Mauvais comestible</p>
             </div>
             <div class="col">
-                <a href="{% url 'sort_by_edible_bad' %}"><img src="/static/assets/img/Daco_4461294.png" WIDTH=50
+                <a href="{% url 'sort_by_edible_bad' %}"><img src="{% static 'assets/img/Daco_4461294.png' %}" WIDTH=50
                         HEIGHT=50 /></a>
                 <p>Non comestible</p>
             </div>
             <div class="col">
-                <a href="{% url 'sort_by_edible_toxic' %}"><img src="/static/assets/img/clipart343879.png" WIDTH=50
+                <a href="{% url 'sort_by_edible_toxic' %}"><img src="{% static 'assets/img/clipart343879.png' %}" WIDTH=50
                         HEIGHT=50 /></a>
                 <p>Toxique</p>
             </div>
             <div class="col">
                 <a href="{% url 'sort_by_edible_deadly' %}"><img
-                        src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=50 HEIGHT=50 /></a>
+                        src="{% static 'assets/img/SeekPng.com_red-skull-png_497283.png' %}" WIDTH=50 HEIGHT=50 /></a>
                 <p>Mortel</p>
             </div>
             <div class="col">
-                <img src="/static/assets/img/pngegg.png" WIDTH=50 HEIGHT=50 />
+                <img src="{% static 'assets/img/pngegg.png' %}" WIDTH=50 HEIGHT=50 />
                 <p>Inconnu (déconseillé)</p>
             </div>
         </div>
@@ -69,7 +70,7 @@
             <div class="col-lg-4 col-md-12 d-flex align-items-stretch">
                 <div class="card mx-3 shadow p-3 mb-5 bg_white border-primary rounded flex-fill">
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/SeekPng.com_red-skull-png_497283.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     <img class="card-img-top" src="{{ mushroom.image }}" style="object-fit: contain; height: 20em" />
                     <div class="card-body">

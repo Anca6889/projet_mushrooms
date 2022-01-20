@@ -1,10 +1,11 @@
 {% extends "index.html" %}
+{% load static %}
 
 {% block body_content %}
 
 <body>
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('/static/assets/img/top-view-of-fresh-mushrooms-in-wicker-basket-on-rustic-wood-with-copy-space.jpg')">
+    <header class="masthead" style="background-image: url({% static 'assets/img/top-view-of-fresh-mushrooms-in-wicker-basket-on-rustic-wood-with-copy-space.jpg' %})">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -35,32 +36,32 @@
         </div>
         <div class="row text-center justify-content-center align-items-centers">
             <div class="col">
-                <img src="/static/assets/img/excellent.png" WIDTH=50 HEIGHT=50 />
+                <img src="{% static 'assets/img/excellent.png' %}" WIDTH=50 HEIGHT=50 />
                 <p>Bon comestible
                 <p>
             </div>
             <div class="col">
-                <img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=50 HEIGHT=50 />
+                <img src="{% static 'assets/img/pngfind.com-thumbs-up-icon-png-59727.png' %}" WIDTH=50 HEIGHT=50 />
                 <p>Comestible</p>
             </div>
             <div class="col">
-                <img src="/static/assets/img/orange.png" WIDTH=50 HEIGHT=50 />
+                <img src="{% static 'assets/img/orange.png' %}" WIDTH=50 HEIGHT=50 />
                 <p>Mauvais comestible</p>
             </div>
             <div class="col">
-                <img src="/static/assets/img/Daco_4461294.png" WIDTH=50 HEIGHT=50 />
+                <img src="{% static 'assets/img/Daco_4461294.png' %}" WIDTH=50 HEIGHT=50 />
                 <p>Non comestible</p>
             </div>
             <div class="col">
-                <img src="/static/assets/img/clipart343879.png" WIDTH=50 HEIGHT=50 />
+                <img src="{% static 'assets/img/clipart343879.png' %}" WIDTH=50 HEIGHT=50 />
                 <p>Toxique</p>
             </div>
             <div class="col">
-                <img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=50 HEIGHT=50 />
+                <img src="{% static 'assets/img/SeekPng.com_red-skull-png_497283.png' %}" WIDTH=50 HEIGHT=50 />
                 <p>Mortel</p>
             </div>
             <div class="col">
-                <img src="/static/assets/img/pngegg.png" WIDTH=50 HEIGHT=50 />
+                <img src="{% static 'assets/img/pngegg.png' %}" WIDTH=50 HEIGHT=50 />
                 <p>Inconnu (déconseillé)</p>
             </div>
         </div>
@@ -73,31 +74,31 @@
                 <div class="card mx-3 shadow p-3 mb-5 bg_white border-primary rounded flex-fill">
                     {% if mushroom.comestibilite == "bon comestible" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/excellent.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/excellent.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "comestible" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/pngfind.com-thumbs-up-icon-png-59727.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/pngfind.com-thumbs-up-icon-png-59727.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "mauvais comestible" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/orange.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/orange.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "non comestible" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/Daco_4461294.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/Daco_4461294.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "toxique" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/clipart343879.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/clipart343879.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% elif mushroom.comestibilite == "mortel" %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/SeekPng.com_red-skull-png_497283.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/SeekPng.com_red-skull-png_497283.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% else %}
                     <div class="d-flex flex-row-reverse mb-1">
-                        <img src="/static/assets/img/pngegg.png" WIDTH=50 HEIGHT=50 />
+                        <img src="{% static 'assets/img/pngegg.png' %}" WIDTH=50 HEIGHT=50 />
                     </div>
                     {% endif %}
                     <img class="card-img-top" src="{{ mushroom.image }}" style="object-fit: contain; height: 20em" />
@@ -135,7 +136,7 @@
         <div class="row text-center justify-content-center align-items-centers">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <p class="text-primary">Désolé nous n'avons trouvé aucuns résultats pouvant correspondre à vos critères</p>
-                <img src="/static/assets/img/mushroom-mushroommovie.gif" WIDTH=200 HEIGHT=200 />
+                <img src="{% static 'assets/img/mushroom-mushroommovie.gif' %}" WIDTH=200 HEIGHT=200 />
             </div>
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <a href="{% url 'index' %}" class="btn btn-outline-primary mt-2" role="button">Page d'accueil</a>
