@@ -1,0 +1,21 @@
+language: python
+python:
+  - "3.9"
+
+branches:
+  only:
+    - main
+
+gitinstall:
+  - pip install pipenv
+  - pipenv install --dev
+
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE="projectmushrooms.travis"
+
+services:
+  - postgresql
+
+script:
+  - python manage.py test
