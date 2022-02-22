@@ -16,6 +16,7 @@ django-heroku = "*"
 gunicorn = "*"
 sentry-sdk = "*"
 whitenoise = "*"
+selenium = "*"
 
 [dev-packages]
 
