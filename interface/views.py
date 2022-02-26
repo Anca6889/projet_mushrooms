@@ -223,7 +223,7 @@ def engine_results(request, color_top, form, color_under, ring):
     else:
         final_results = service.sort_by_not_ring(third_sort_color_under)
 
-    mushrooms = service.sort_out_user_favorite_mushrooms(final_results, user)
+    service.sort_out_user_favorite_mushrooms(final_results, user)
     context = service.set_final_engine_context(
         color_top, form, color_under, ring, final_results
     )

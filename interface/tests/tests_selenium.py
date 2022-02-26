@@ -82,4 +82,3 @@ class BrowserTests(StaticLiveServerTestCase):
         top_search_button.click()
         mushroom_details = self.driver.find_element_by_name("details")
         mushroom_details.click()
-

@@ -29,9 +29,9 @@ class UrlsTests(SimpleTestCase):
         self.assertEquals(resolver.func.__name__,
                           SearchResults.as_view().__name__)
 
-    def test_engine2_url_is_resolved(self):
-        url = reverse("engine2", kwargs={"engine2_id": 1})
-        self.assertEquals(resolve(url).func, views.engine2_details)
+    def test_mushroom_details_url_is_resolved(self):
+        url = reverse("mushroom", kwargs={"mushroom_id": 1})
+        self.assertEquals(resolve(url).func, views.mushroom_details)
 
     def test_sort_by_edible_very_good_url_is_resolved(self):
         url = reverse("sort_by_edible_very_good")

@@ -22,7 +22,6 @@ class BrowserTests(StaticLiveServerTestCase):
             options=chrome_options,
         )
 
-
     def test_register_logout_login(self):
         """This method will do all the actions, check comments below"""
 
