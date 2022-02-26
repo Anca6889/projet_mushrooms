@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic.base import TemplateResponse
 from interface.models import Mushroom
 from interface.service import Service
+import sentry_sdk
 
 service = Service()  # Load all the necessary methods from service.py
 
@@ -52,6 +53,11 @@ class SearchResults(ListView):
         in his name
         """
         query = self.request.GET.get("search")
+
+        with sentry_sdk.push_scope() as scope:
+            scope.set_extra('debug', False)
+            sentry_sdk.capture_message('New search', 'info')
+
         results = service.search_results_with_name(query)
         results = service.sort_out_user_favorite_mushrooms(
             results, user=self.request.user
