@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """This module contains the specifics authentication formulars used in views"""
 
 from django.contrib.auth.forms import UserCreationForm

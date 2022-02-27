@@ -1,4 +1,7 @@
-"""This module will test the views"""
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+"""This module will test the models of app interface"""
 
 from django.test import TestCase
 from interface.models import Mushroom
@@ -113,7 +116,8 @@ class Modelstests(TestCase):
         self.assertEqual(result, 'bleu')
 
     def test_mode_d_insertion_du_dessous_du_chapeau_avec_le_pied(self):
-        result = self.mock_mushroom.mode_d_insertion_du_dessous_du_chapeau_avec_le_pied
+        result = \
+         self.mock_mushroom.mode_d_insertion_du_dessous_du_chapeau_avec_le_pied
         self.assertEqual(result, 'libres')
 
     def test_espace_entre_les_lamelles(self):

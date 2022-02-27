@@ -1,3 +1,11 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+"""
+This module will get try to get pictures from Wikipedia API using the French
+vulgaris name of mushroom
+"""
+
 from django.core.management.base import BaseCommand
 from interface.models import Mushroom
 import requests

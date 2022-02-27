@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """
 This module contains all the views necessary to run the autenthication
 Note: The django authentication engine have been modified to allow a user to

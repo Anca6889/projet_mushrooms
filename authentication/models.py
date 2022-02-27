@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """This module contain the models to build the DB tables"""
 
 from django.db import models

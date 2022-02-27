@@ -1,4 +1,11 @@
-"""This module will use selenium for testing with Google Chrome Navigator"""
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+"""
+This module is a functional test that will use selenium for testing with Google
+Chrome Navigator
+"""
+
 from projectmushrooms.settings import BASE_DIR
 from selenium import webdriver
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase

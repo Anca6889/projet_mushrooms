@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """This module will test all the methods in service.py used for the views"""
 
 from django.test import TestCase

@@ -1,3 +1,11 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+"""
+This module will pop the database using the JSON ressource file from
+data.gouv
+"""
+
 from django.core.management.base import BaseCommand
 from django.db.utils import DataError, IntegrityError
 from interface.models import Mushroom

@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """This module will use selenium for testing with Google Chrome Navigator"""
 from projectmushrooms.settings import BASE_DIR
 from selenium import webdriver

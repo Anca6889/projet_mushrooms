@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """This module will test the authentication views"""
 
 from django.test import TestCase, Client

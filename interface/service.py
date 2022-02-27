@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """
     This module contains all the basic methods of app/views.py
     This way alow a optimise refactoring and make it easier to unittest.

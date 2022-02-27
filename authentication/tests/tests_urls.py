@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """This module will test all the urls"""
 
 from django.test import SimpleTestCase

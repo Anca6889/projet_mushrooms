@@ -54,6 +54,12 @@ Lancer le serveur local:
 
 Lancer les tests (si nécessaire):  
 ``` py manage.py test ```  
+
+Lancer les tests avec coverage:  
+``` coverage run --source='.' manage.py test -v2 ```
+
+Rapport coverage:  
+``` coverage report ```
 ___
 ## Paquets utilisés :
 

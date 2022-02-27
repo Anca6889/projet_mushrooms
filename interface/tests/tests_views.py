@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """This module will test the views"""
 
 from django.test import TestCase, Client
@@ -86,7 +89,8 @@ class Viewstests(TestCase):
         self.sort_by_edible_deadly = reverse("sort_by_edible_deadly")
         self.engine2 = reverse("engine2", args=['neutre'])
         self.engine3 = reverse("engine3", args=['neutre', 'lamelles'])
-        self.engine4 = reverse("engine4", args=['neutre', 'lamelles', 'neutre'])
+        self.engine4 = reverse("engine4", args=[
+                               'neutre', 'lamelles', 'neutre'])
         self.engine_results = reverse("engine_results", args=[
                                       'neutre', 'lamelles', 'neutre', 'oui'])
 

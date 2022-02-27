@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """
 This module is a modification of the authentication engine allowing user to
 login with his email OR with his username. Used in the views.

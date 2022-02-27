@@ -1,3 +1,8 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+""" This module is an intergration test for pop the database"""
+
 from django.test import TestCase
 from unittest.mock import patch
 from interface.management.commands.pop_db import Command as CdeDb
@@ -19,25 +24,28 @@ class Databasetests(TestCase):
 
         self.launch_process()
 
-        return "everything is running fine"
+        return 'everything is running fine'
 
-    @patch("interface.management.commands.pop_db.Command.handle", mock_handle)
+    @patch('interface.management.commands.pop_db.Command.handle',
+           mock_handle)
     def test_database_process(self):
         """Lauch the integration test with the two mocks"""
 
         response = self.db.handle()
-        self.assertEqual(response, "everything is running fine")
+        self.assertEqual(response, 'everything is running fine')
 
-    @patch("interface.management.commands.get_picts.Command.handle", mock_handle)
+    @patch('interface.management.commands.get_picts.Command.handle',
+           mock_handle)
     def test_picts_process(self):
         """Lauch the integration test with the two mocks"""
 
         response = self.picts.handle()
-        self.assertEqual(response, "everything is running fine")
+        self.assertEqual(response, 'everything is running fine')
 
-    @patch("interface.management.commands.get_aditional_picts.Command.handle", mock_handle)
+    @patch('interface.management.commands.get_aditional_picts.Command.handle',
+           mock_handle)
     def test_addpicts_process(self):
         """Lauch the integration test with the two mocks"""
 
         response = self.addpicts.handle()
-        self.assertEqual(response, "everything is running fine")
+        self.assertEqual(response, 'everything is running fine')

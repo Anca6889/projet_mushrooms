@@ -1,3 +1,8 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+""" this model will set the POSTGRE database """
+
 from django.db import models
 from django.contrib.auth.models import User
 
